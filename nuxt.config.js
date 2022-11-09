@@ -67,7 +67,7 @@ export default {
     strategies: {
       'laravelJWT': {
         provider: 'laravel/jwt',
-        url: 'api/',
+        url: 'api/auth/',
         endpoints: {
           login: { url: 'login', method: 'post' },
           logout: { url: 'logout', method: 'post' },
