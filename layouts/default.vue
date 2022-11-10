@@ -2,18 +2,23 @@
     <div>
         <div>
             <HeaderComponent/>
+            <NavigationComponent/>
         </div>
         <div>
-          <nuxt/>
+          <Nuxt/>
         </div>
     </div>
 </template>
 <script>
-import HeaderComponent from '~/components/HeaderComponent.vue';
+import HeaderComponent from '~/components/common/HeaderComponent.vue';
+import NavigationComponent from '~/components/common/NavigationComponent.vue';
+
+import "~/assets/css/style_light.css";
 
 export default {
   components: {
-    HeaderComponent
+    HeaderComponent,
+    NavigationComponent
   },
     created(){
         console.log(process.env.URL)

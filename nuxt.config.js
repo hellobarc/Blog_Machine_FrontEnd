@@ -1,7 +1,8 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  mode: 'univrsal',
   head: {
-    title: 'frontend',
+    title: 'Blog Site',
     htmlAttrs: {
       lang: 'en'
     },
@@ -14,11 +15,15 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: `${process.env.URL}css/style.css`}
-    ]
+    ],
+    css: [
+      '~/assets/css/style_light.css'
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    './assets/css/customstyle.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

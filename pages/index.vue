@@ -11,16 +11,18 @@
           <div class="col-md-12">
               <div class="row">
                   <div class="col-md-2">
-                    Left side bare
+                    Left  Side Bar
                   </div>
                   <div class="col-md-8">
-                    Content area
+                    Content Area
+                  </div>
+                  <div class="col-md-2">
+                    Right  Side Bar
                   </div>
               </div>
           </div>
        </div>
     </div>
-
 
   </div>
 </template>

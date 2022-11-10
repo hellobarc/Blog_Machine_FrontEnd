@@ -1,0 +1,87 @@
+.body{
+
+}
+
+h1{
+  color: red;
+}
+
+h2{
+
+}
+
+h3{
+
+}
+
+
+h4{
+
+}
+
+
+h5{
+
+}
+
+h6{
+
+}
+
+p{
+
+}
+
+.content_title{
+
+}
+
+
+.table_content{
+
+}
+
+.sub_title{
+
+}
+
+.sub_head{
+
+}
+
+ul{
+
+}
+
+ul li{
+
+}
+
+table{
+
+}
+
+.flex-space-between{
+  display: flex;
+  justify-content: space-between;
+}
+
+.large_font{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.inner_box{
+  width: 75%;
+  margin: auto;
+}
+
+.test{
+  color: red;
+}
+
+
+
+
+
+
