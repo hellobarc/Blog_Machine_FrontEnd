@@ -14,7 +14,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: `${process.env.URL}css/style.css`}
+      { rel: 'stylesheet', href: `${process.env.URL}css/style.css`},
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto'}
     ],
     css: [
       '~/assets/css/style_light.css'
@@ -28,6 +29,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/bootstrap-vue',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,8 +44,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/auth-next',
-    'bootstrap-vue/nuxt'
-
 
   ],
   axios: {
@@ -72,7 +72,7 @@ export default {
     strategies: {
       'laravelJWT': {
         provider: 'laravel/jwt',
-        url: 'api/auth/',
+        url: 'api/v1/auth/',
         endpoints: {
           login: { url: 'login', method: 'post' },
           logout: { url: 'logout', method: 'post' },

@@ -1,9 +1,32 @@
+html {
+	scroll-behavior: smooth;
+}
+
 .body{
 
 }
 
+hr {
+  margin-top: 0.5rem;
+   margin-bottom: 0.5rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.brand img{
+  width: 60px;
+}
+
+a {
+  color: #212a33;
+  text-decoration: none;
+  background-color: transparent;
+}
+
 h1{
-  color: red;
+  font-size: 2.5rem;
+  font-family: Roboto;
+  font-weight: bold;
 }
 
 h2{
@@ -61,13 +84,18 @@ table{
 
 }
 
+.width_100{width: 100%}
+.left_m_50{
+  margin-left: 50px;
+}
+
 .flex-space-between{
   display: flex;
   justify-content: space-between;
 }
 
 .large_font{
-  font-size: 1.5em;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -76,12 +104,41 @@ table{
   margin: auto;
 }
 
-.test{
-  color: red;
+.p-30{
+  padding: 30px;
+}
+
+
+.p-11{
+  padding: 11px;
 }
 
 
 
 
 
+
+.sticky{
+  position: -webkit-sticky; /* Safari */
+                position: sticky;
+                top: 0;
+                border: 2px solid red
+}
+
+
+.font_para{
+  font-size: 1.2rem;
+}
+
+.read_more_button{
+  padding: 8px;
+  border-radius: 10px;
+  background-color: rgb(175 210 247);
+  width: 150px;
+  margin-right: 10px;
+}
+
+.read_more_button a{
+  color: #000;
+}
 
