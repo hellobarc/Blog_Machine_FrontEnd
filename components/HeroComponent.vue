@@ -18,20 +18,22 @@
                           <p class="font_para">
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover ma ..
                           </p>
-                          <div class="read_more_button text-center pull-right float-right"><a href=""> Read more  <b-icon icon="arrow-right"></b-icon></a></div>
+                         <div class=" pull-right float-right"><ReadmoreButton/></div>
                       </div>
                   </div>
                 </div>
             </div>
-        </div>
+          </div>
         </div>
       </div>
-
   </div>
 </template>
 <script>
+import ReadmoreButton from '~/components/parts/ReadmoreButton.vue';
 export default {
-
+  components:{
+    ReadmoreButton
+  }
 }
 </script>
 <style>

@@ -1,17 +1,23 @@
 <template>
   <div>
-      <HeroComponent/>
+    <div class="min-height-100">
+        <HeroComponent/>
+        <div style="margin-bottom: 250px;">
+          <featured-component/>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
 import HeroComponent from '~/components/HeroComponent.vue';
-
+import FeaturedComponent from '../components/FeaturedComponent.vue';
 export default {
-  name: 'IndexPage',
+  name: 'Home-Page',
   components:{
-    HeroComponent
-  },
+    HeroComponent,
+    FeaturedComponent
+    },
   data(){
     return {
 

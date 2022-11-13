@@ -26,6 +26,7 @@ export default {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
   border-radius: 25px;
   border: 1px solid #ccc;
+  width: 100%;
 }
 .search-form .form-group input.form-control {
   padding-right: 20px;
@@ -33,6 +34,7 @@ export default {
   background: transparent;
   box-shadow: none;
   display:block;
+
 }
 .search-form .form-group input.form-control::-webkit-input-placeholder {
   display: none;

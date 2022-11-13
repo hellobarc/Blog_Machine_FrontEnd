@@ -1,10 +1,26 @@
 html {
-	scroll-behavior: smooth;
+  height: 100%;
 }
 
-.body{
 
+body {
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #EDEFF8;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+
+
 
 hr {
   margin-top: 0.5rem;
@@ -24,7 +40,7 @@ a {
 }
 
 h1{
-  font-size: 2.5rem;
+  font-size: 40px;
   font-family: Roboto;
   font-weight: bold;
 }
@@ -132,8 +148,8 @@ table{
 
 .read_more_button{
   padding: 8px;
-  border-radius: 10px;
-  background-color: rgb(175 210 247);
+  border-radius: 20px;
+  background-color: #D9D9D9;
   width: 150px;
   margin-right: 10px;
 }
@@ -142,3 +158,69 @@ table{
   color: #000;
 }
 
+
+.mycard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 15px;
+}
+
+.card-title {
+  margin-bottom: 0.75rem;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.post_title{
+  font-size: 40px;
+  font-weight: 700;
+}
+
+
+.mycard img{
+  border-radius: 15px 15px 0px 0px;
+}
+
+
+
+.min-height-100{
+  min-height: 100%;
+}
+
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #EDEFF8;
+  padding-top: 30px;
+  padding-bottom: 30px;;
+}
+
+.gray_box{
+  background: #FBFBFB;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+
+.main_content{
+  margin-bottom: 355px;
+}
+
+ul li{
+  list-style-type: none;
+}
+
+.sticky_sidebar{
+position: sticky!important;
+top: 2rem;
+}
