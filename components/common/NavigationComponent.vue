@@ -9,9 +9,7 @@
                 <div class="left_item_nav">
                   <span class="large_font">All Category</span>
                   <b-dropdown id="dropdown-1" text="" variant="outline-default " class="m-md-2">
-                    <b-dropdown-item class="test">First Action</b-dropdown-item>
-                    <b-dropdown-item>Second Action</b-dropdown-item>
-                    <b-dropdown-item>Third Action</b-dropdown-item>
+                    <b-dropdown-item  v-for="category_list in all_category" :key="category_list.cat_id">{{category_list.cat_name}}</b-dropdown-item>
                   </b-dropdown>
                 </div>
               </div>
@@ -29,6 +27,20 @@ import SearchComponent from './SearchComponent.vue';
 export default {
   components:{
     SearchComponent
+  },
+  data(){
+    return{
+       all_category: {},
+    }
+  },
+  methods:{
+    async getCategory() {
+      let res = await this.$store.dispatch("allCategory");
+      this.all_category = res.data.data;
+    }
+  },
+  mounted() {
+    this.getCategory();
   }
 
 }

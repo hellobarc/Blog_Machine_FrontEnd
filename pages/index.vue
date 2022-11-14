@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="min-height-100">
-        <HeroComponent/>
+          <HeroComponent/>
         <div style="margin-bottom: 250px;">
           <featured-component/>
+          <latestpost-component/>
         </div>
     </div>
   </div>
@@ -11,12 +12,17 @@
 
 <script>
 import HeroComponent from '~/components/HeroComponent.vue';
-import FeaturedComponent from '../components/FeaturedComponent.vue';
+import FeaturedComponent from '~/components/FeaturedComponent.vue';
+import LatestpostComponent from '~/components/LatestpostComponent.vue';
+
+
 export default {
   name: 'Home-Page',
   components:{
     HeroComponent,
-    FeaturedComponent
+    FeaturedComponent,
+    LatestpostComponent,
+    LatestpostComponent
     },
   data(){
     return {

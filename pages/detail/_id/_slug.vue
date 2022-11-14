@@ -3,7 +3,8 @@
         <hr>
         <div class="inner_box">
           <div class="row">
-              <div class="col-md-9">
+            <div class="col-md-1"></div>
+              <div class="col-md-8 col-md-offset-2">
                 <h1 class="post_title">This is the very big title of the blog Second Line </h1>
                 <div class="main_content" >
                   <h2 id="1" class="sub_title" ref="sub_title1"> Sub title test Part 1</h2>

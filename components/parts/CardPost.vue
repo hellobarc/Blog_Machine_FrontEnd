@@ -3,9 +3,9 @@
     <div class="mycard" style="width:95%">
       <img src="~/assets/temp_image/course_1.png"   alt="Card image cap"/>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <ReadmoreButton :to="'/detail/'+post_id"/>
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{description}}</p>
+        <ReadmoreButton :to="`/detail/${article_id}/${article_slug}`"/>
       </div>
     </div>
   </div>
@@ -16,6 +16,12 @@ import ReadmoreButton from '~/components/parts/ReadmoreButton.vue';
 export default {
   components:{
     ReadmoreButton
+  },
+  props:{
+    title: String,
+    description: String,
+    article_id: String,
+    article_slug: String,
   },
   data(){
     return {
