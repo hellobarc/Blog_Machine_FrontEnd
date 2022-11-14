@@ -4,11 +4,11 @@
         <div class="featured_content">
           <h1> Latest Article </h1>
           <div class="row">
-            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" v-for="list in artiles" :key="list.article_id">
-                <div>
+            <article class="col-md-3 col-lg-3 col-sm-6 col-xs-12" v-for="list in artiles" :key="list.article_id">
+                <section>
                     <card-post :title="list.title" :description="list.meta_description" :article_id="list.id"  :article_slug="list.slug"/>
-                </div>
-            </div>
+                </section>
+            </article>
           </div>
         </div>
       </div>

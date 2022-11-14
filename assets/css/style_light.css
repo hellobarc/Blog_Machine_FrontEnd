@@ -8,6 +8,7 @@ body {
   position: relative;
   margin: 0;
   box-sizing: border-box;
+  background-color: red;
 }
 
 p {
@@ -231,4 +232,33 @@ ul li{
 .sticky_sidebar{
 position: sticky!important;
 top: 2rem;
+}
+
+
+/* Carasuled */
+
+.carausel_image img{
+  border-radius: 20px;;
+}
+
+
+.carausel_text{
+  position: absolute;
+  top: 51px;
+  left: 24px;
+  color: #fff;
+}
+
+.item_wrapper{
+  position: relative;
+  display: block;
+}
+
+
+.btn {
+  color:  #000;
+}
+
+.btn-secondary{
+ color:  #000;
 }

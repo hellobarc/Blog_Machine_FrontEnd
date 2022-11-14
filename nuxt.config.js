@@ -30,7 +30,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/bootstrap-vue',
-    { src: '~/plugins/vue-scroll-indicator', ssr: false }
+    '@/plugins/caraousel_slider',
+    { src: '~/plugins/vue-scroll-indicator', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -44,8 +45,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    '@nuxtjs/auth-next',
-
+    '@nuxtjs/auth-next'
   ],
   axios: {
     baseURL: process.env.URL, // Used as fallback if no runtime config is provided
@@ -89,9 +89,6 @@ export default {
       },
     }
   },
-
-
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }

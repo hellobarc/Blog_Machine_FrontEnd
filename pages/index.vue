@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="min-height-100">
-          <HeroComponent/>
+        <HeroComponent/>
         <div style="margin-bottom: 250px;">
           <featured-component/>
           <latestpost-component/>
@@ -18,16 +18,15 @@ import LatestpostComponent from '~/components/LatestpostComponent.vue';
 
 export default {
   name: 'Home-Page',
-  components:{
+    components:{
     HeroComponent,
     FeaturedComponent,
     LatestpostComponent,
-    LatestpostComponent
     },
-  data(){
-    return {
+    data() {
+      return {
 
-    }
+      }
   },
   mounted(){
     console.log("Home page")
