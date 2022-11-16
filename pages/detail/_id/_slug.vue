@@ -11,9 +11,9 @@
                   </div>
                   <h1 class="post_title">{{item.title}}</h1>
 
-                    <div class="article_content">
-                        <div v-for="(article_content,article_index) in item.article_content" :key="article_index" ref="items">
-                            <h2 :id="article_content.id" class="subt" ref="sub_title">{{article_content.content_subtitle}}</h2>
+                    <div class="article_content" ref="mycontent">
+                        <div v-for="(article_content,article_index) in item.article_content" :key="article_index">
+                            <h2 :id="article_content.id" class="subt">{{article_content.content_subtitle}}</h2>
                             <div class="content_type" v-if="article_content.content_type=='text'">
 
                                 <div v-for="(textcontent,ind) in item.article_text_content" :key="ind">
@@ -80,13 +80,12 @@ export default {
   },
   methods: {
     handleScroll () {
-      /*
 
-      const subtitle = this.sub_heads;
+      const subtitle = this.$el.querySelectorAll("h2");
       const  observer = new IntersectionObserver(entries => {
-        entries.forEach(entry=>{
+        entries.forEach(entry=>{;
               if(entry.isIntersecting){
-                document.getElementById("link_part_"+entry.target.id).style.color = "red";
+                  document.getElementById("link_part_"+entry.target.id).style.color = "red";
               }else{
                 document.getElementById("link_part_"+entry.target.id).style.color = "blue";
               }
@@ -95,12 +94,10 @@ export default {
           threshold: 1
         }
       );
-
       for (var i = 0; i < subtitle.length; i++) {
           observer.observe(subtitle[i]);
       }
 
-      */
 
     },
 
