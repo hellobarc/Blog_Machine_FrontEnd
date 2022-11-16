@@ -4,11 +4,14 @@
       <template v-slot:default="{item}">
         <div class="item_wrapper">
             <div class="carausel_image">
-              <img src="~/assets/temp_image/course_2.png" width="100%"/>
+              <img :src="`${$axios.defaults.baseURL}uploads/article/thumbnail/${item.thumbnail}`" :alt="item.article_title" width="100%" class="featured_img_shadow"/>
             </div>
             <div class="carausel_text">
-              <h6>Category</h6>
-              <h1> Reading Tips for IELTS</h1>
+              <h6>{{item.cat_name}}</h6>
+              <h1 class="featured_title"> {{item.article_title}}</h1>
+              <div class="mt-5">
+                  <readmore-button :to="`/detail/${item.article_id}/slub-pore-asbe`"></readmore-button>
+              </div>
             </div>
         </div>
       </template>
@@ -16,7 +19,12 @@
   </div>
 </template>
 <script>
+import ReadmoreButton from './ReadmoreButton.vue';
+
 export default {
+  components:{
+    ReadmoreButton
+  },
   props:['items'],
   data() {
       return {
@@ -33,13 +41,21 @@ export default {
 
             // Because: #app {padding: 80px 24px;}
             padding: 24
-          }
+          },
+        //  autoplay: { play: true, repeat: true, speed: 2500 },
         }
       }
   },
 
 }
 </script>
-<style lang="">
+<style scoped>
+
+.featured_title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Roboto';
+}
+
 
 </style>

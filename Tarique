@@ -39,3 +39,59 @@ https://vuejsexamples.com/modern-lightweight-vue-3-carousel-component/ == https:
 
 
 Coursal with css tricks = https://www.youtube.com/watch?v=2_E5uoiLCLY
+
+VUE COURSEL GOOD EXAMPLE https://www.npmjs.com/package/vue-horizontal-list
+
+Auoto Complee = https://vuejsexamples.com/a-simple-vue3-typeahead-component-that-show-a-suggested-list-of-elements-while-the-user-types-in/ https://vue3-simple-typeahead-demo.netlify.app/
+
+ip check https://stackoverflow.com/questions/59382503/using-vue-js-to-get-the-users-ip-address
+
+vue manual scrol indicator = https://yossiabramov.com/blog/vue-js-scroll-progress-indicator
+
+// Nuxt auth Property
+    $auth.loggedIn = true/false
+    $auth.user = user info
+    $auth.user.email
+
+
+    // Middleware
+    export default async function({$auth, redirect, store}) {
+  let user = $auth.user;
+  if(user && user.admin) {
+    // let the user in
+  } else {
+    store.dispatch('snackbar/setSnackbar', {color: 'error', text: "You must be an admin to view that page."})
+    redirect('/')
+  }
+}
+
+export default async function({$auth, route, redirect, store}) {
+  if(!$auth.loggedIn) {
+    const REDIRECT_URL = '/auth?redirect=' + route.path
+    store.dispatch('snackbar/setSnackbar', {color: 'error', text: "You must be logged in to view that page."})
+    redirect(REDIRECT_URL)
+  }
+
+  // what is snackbar
+  export const state = () => ({
+  snackbars: []
+})
+
+export const mutations = {
+  SET_SNACKBAR(state, snackbar) {
+    state.snackbars = state.snackbars.concat(snackbar);
+  },
+}
+
+export const actions = {
+  setSnackbar({commit}, snackbar) {
+    snackbar.showing = true;
+    snackbar.color = snackbar.color || 'success';
+    commit('SET_SNACKBAR', snackbar);
+  },
+}
+
+app folder/store/snackbar.js
+
+
+// Nuxt Site map Generator //

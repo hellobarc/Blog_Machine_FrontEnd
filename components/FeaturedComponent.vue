@@ -2,12 +2,10 @@
   <div>
       <div class="inner_box">
         <div class="featured_content">
-          <h1>Featured Article </h1>
+          <h1 class="sub_head"> Featured Article </h1>
           <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" >
-                <div>
-                    <CarauselComponent :items="items"/>
-                </div>
+                <CarauselComponent  :items="items"/>
             </div>
           </div>
         </div>
@@ -29,24 +27,23 @@ export default {
   },
   data() {
       return {
-        items: [
-          {title: 'Item 0', content: 'Content item with description'},
-          {title: 'Item 1', content: 'Amar Item 2'},
-          {title: 'Item 1', content: 'Amar Item 2'},
-          {title: 'Item 1', content: 'Amar Item 2'},
-          {title: 'Item 1', content: 'Amar Item 2'},
-          {title: 'Item 1', content: 'Amar Item 2'},
-          {title: 'Item 1', content: 'Amar Item 2'},
-          {title: 'Item 1', content: 'Amar Item 2'},
-          {title: 'Item 1', content: 'Amar Item 2'},
-          {title: 'Item 1', content: 'Amar Item 2'},
-        ]
+        items: [],
       }
   },
   methods:{
     async getFeaturedPost() {
       let res = await this.$store.dispatch("featruedPost");
-      this.artiles = res.data.data;
+      const articles = res.data.data;
+          articles.forEach(element => {
+              this.items.push({
+                article_id: element.article_id,
+                article_title:  element.article_title,
+                cat_name:  element.cat_name,
+                slug: element.slug,
+                thumbnail: element.thumbnail
+              });
+        });
+
     }
   },
   mounted() {

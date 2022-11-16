@@ -2,7 +2,7 @@
   <div>
       <div class="inner_box">
         <div class="featured_content">
-          <h1> Latest Article </h1>
+          <h1 class="sub_head"> Latest Article </h1>
           <div class="row">
             <article class="col-md-3 col-lg-3 col-sm-6 col-xs-12" v-for="list in artiles" :key="list.article_id">
                 <section>

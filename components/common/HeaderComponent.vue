@@ -12,19 +12,19 @@
                 <div class="left_m_50">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="p-2 text-dark" href="#"><NuxtLink to="/">Home</NuxtLink></a>
+                      <NuxtLink to="/">Home</NuxtLink>
                     </li>
                     <li class="nav-item">
-                      <a class="p-2 text-dark" href="#"><NuxtLink to="/">Courses </NuxtLink> </a>
+                      <NuxtLink to="/">Courses </NuxtLink>
                     </li>
                   </ul>
                 </div>
                 <div class="right_">
                   <div v-if="this.$auth.loggedIn">
-                    <a class="btn btn-outline-danger" href="#" @click="logoutuser">Sign Out</a>
+                    <button class="btn btn-outline-danger" href="#" @click="logoutuser">Sign Out</button>
                   </div>
                   <div v-else>
-                    <a class="btn btn-outline-primary" href="#"><NuxtLink to="/login">Sign in</NuxtLink></a>
+                    <button class="btn btn-outline-primary" href="#"><NuxtLink to="/login">Sign in</NuxtLink></button>
                   </div>
                 </div>
               </div>

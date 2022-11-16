@@ -1,5 +1,6 @@
 html {
   height: 100%;
+
 }
 
 
@@ -9,6 +10,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   background-color: red;
+
 }
 
 p {
@@ -182,8 +184,7 @@ table{
 
 .card-title {
   margin-bottom: 0.75rem;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 1.6rem;
 }
 
 .post_title{
@@ -238,8 +239,11 @@ top: 2rem;
 /* Carasuled */
 
 .carausel_image img{
-  border-radius: 20px;;
+  border-radius: 20px;
+  display: block;
+  box-shadow: inset 100 0 100px #000;
 }
+
 
 
 .carausel_text{
@@ -261,4 +265,15 @@ top: 2rem;
 
 .btn-secondary{
  color:  #000;
+}
+
+
+.sub_head{
+  font-family: sans-serif;
+  font-weight: 700;
+}
+
+
+.featured_img_shadow{
+  border: 5x solid red;
 }

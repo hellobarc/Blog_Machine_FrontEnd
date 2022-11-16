@@ -1,24 +1,24 @@
 <template lang="">
   <div>
     <div class="inner_box">
-        <div class="here_content">
+        <div class="here_content" v-for="item in articles">
           <div class="row">
             <div class="col-lg-8 col-md-8 col-xs-12">
                 <div class="hero_image">
-                    <img src="~/assets/temp_image/hero_image.png"   alt="Card image cap"/>
+                    <img src="~/assets/temp_image/hero_image.png"   :alt="item.title"/>
                  </div>
             </div>
             <div class="col-lg-4 col-md-4 col-xs-12">
-                <div style="height: 100%; " class="d-flex align-items-center">
+                <div style="height: 100%; " class="d-flex align-items-center" >
                   <div class="hero_text" >
                       <div class="text-center">
-                          <h1>Title of the Article</h1>
+                          <h1>{{item.title}}</h1>
                       </div>
                       <div class="text_content">
                           <p class="font_para">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover ma ..
+                            {{item.meta_description}}
                           </p>
-                         <div class=" pull-right float-right"><ReadmoreButton/></div>
+                         <div class=" pull-right float-right"><ReadmoreButton :to="`/detail/${item.id}/slub-pore-asbe`" /></div>
                       </div>
                   </div>
                 </div>
@@ -33,6 +33,20 @@ import ReadmoreButton from '~/components/parts/ReadmoreButton.vue';
 export default {
   components:{
     ReadmoreButton
+  },
+  data(){
+    return {
+       articles : {},
+    }
+  },
+  methods:{
+      async getPremiumPost(){
+        let res = await this.$store.dispatch("premiumPost");
+        this.articles = res.data.data;
+      }
+  },
+  mounted(){
+      this.getPremiumPost();
   }
 }
 </script>

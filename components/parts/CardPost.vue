@@ -1,7 +1,7 @@
 <template lang="">
   <div>
     <div class="mycard" style="width:95%">
-      <img src="~/assets/temp_image/course_1.png"   alt="Card image cap"/>
+      <img src="~/assets/temp_image/course_1.png"   :alt="title"/>
       <div class="card-body">
         <h5 class="card-title">{{title}}</h5>
         <p class="card-text">{{description}}</p>
