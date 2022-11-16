@@ -5,6 +5,7 @@
           <div class="row">
             <div class="col-md-1"></div>
               <div class="col-md-8 col-md-offset-2">
+                {{article_data}}
                 <div class="main_content" v-for="(item,index) in article_data" :key="index"  >
                   <div>
                     <nuxt-link to="/category/id/slug"><p>{{item.category.cat_name}}</p></nuxt-link>
@@ -15,14 +16,21 @@
                         <div v-for="(article_content,article_index) in item.article_content" :key="article_index">
                             <h2 :id="article_content.id" class="subt">{{article_content.content_subtitle}}</h2>
                             <div class="content_type" v-if="article_content.content_type=='text'">
-
                                 <div v-for="(textcontent,ind) in item.article_text_content" :key="ind">
                                       <div v-if="textcontent.article_content_id==article_content.id">
                                           {{textcontent.content}}
                                       </div>
                                 </div>
-
                             </div>
+
+                            <div class="content_type" v-if="article_content.content_type=='image'">
+                                <div v-for="(image_content,ind) in item.article_image_content" :key="ind">
+                                      <div v-if="image_content.article_content_id==article_content.id">
+                                          {{image_content.content}}
+                                      </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -62,17 +70,9 @@ export default {
   },
   computed:{
     subHeads(){
-
           return this.sub_heads.map((item)=>{
                 return item.content_subtitle;
           });
-
-        /*
-
-            for (var i = 0; i < subtitle.length; i++) {
-                this.sub_heads.push(subtitle[i].textContent);
-            }
-          */
         }
   },
   created(){
@@ -87,7 +87,7 @@ export default {
               if(entry.isIntersecting){
                   document.getElementById("link_part_"+entry.target.id).style.color = "red";
               }else{
-                document.getElementById("link_part_"+entry.target.id).style.color = "blue";
+                document.getElementById("link_part_"+entry.target.id).style.color = "#000";
               }
           });
         },{
