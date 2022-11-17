@@ -5,7 +5,7 @@
           <nav class="navbar navbar-expand-lg">
             <div class="brand"><NuxtLink to="/"><img src="~/assets/images/logo.png" alt="LOGO" /></NuxtLink></div>
             <b-button  class="navbar-toggler" type="button" v-b-toggle.my-collapse>
-              <b-icon icon="justify"></b-icon>
+              <b-icon icon="justify" class="black"></b-icon>
             </b-button >
             <b-collapse id="my-collapse"  class="collapse navbar-collapse">
               <div class="flex-space-between width_100 font-weight-bold">

@@ -95,3 +95,6 @@ app folder/store/snackbar.js
 
 
 // Nuxt Site map Generator //
+
+
+Base url from component : this.$axios.defaults.baseURL

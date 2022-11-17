@@ -91,6 +91,16 @@ p{
 
 }
 
+ul.table_content li{
+  font-weight: bold;
+  color: #404441;
+}
+
+ul.table_content li a{
+  font-weight: bold;
+  color: #404441;
+}
+
 .sub_title{
 
 }
@@ -276,4 +286,21 @@ top: 2rem;
 
 .featured_img_shadow{
   border: 5x solid red;
+}
+
+
+.nav-item{
+  margin-left: 10px;
+}
+
+#my-collapse{
+  margin-top: 5px;
+}
+
+.gray{
+  color: #ccc;
+}
+
+.black{
+  color: #ccc;
 }
