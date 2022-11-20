@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-        <hr>
+      <hr>
         <div class="inner_box">
           <div class="row">
             <div class="col-md-2"></div>
@@ -10,19 +10,16 @@
                     <nuxt-link to="/category/id/slug"><p>{{item.category.cat_name}}</p></nuxt-link>
                   </div>
                   <h1 class="post_title">{{item.title}}</h1>
-
                     <div class="article_content" ref="mycontent">
                         <div v-for="(article_content,article_index) in item.article_content" :key="article_index">
                             <h2 :id="article_content.id" class="subt">{{article_content.content_subtitle}}</h2>
-
                             <div class="content_type" v-if="article_content.content_type=='text'">
                                 <div v-for="(textcontent,ind) in item.article_text_content" :key="ind">
                                       <div v-if="textcontent.article_content_id==article_content.id">
-                                          <p>{{textcontent.content}}</p>
+                                          <div v-html="textcontent.content"></div>
                                       </div>
                                 </div>
                             </div>
-
                             <div class="content_type" v-if="article_content.content_type=='image'">
                                 <div v-for="(image_content,ind) in item.article_image_content" :key="ind">
                                       <div v-if="image_content.article_content_id==article_content.id">
@@ -30,7 +27,6 @@
                                       </div>
                                 </div>
                             </div>
-
                             <div class="content_type" v-if="article_content.content_type=='video'">
                                 <div v-for="(video_content,index) in item.article_video_content" :key="index">
                                       <div v-if="video_content.article_content_id==article_content.id">
@@ -38,7 +34,6 @@
                                       </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 

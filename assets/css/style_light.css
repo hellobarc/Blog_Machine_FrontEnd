@@ -304,3 +304,17 @@ top: 2rem;
 .black{
   color: #ccc;
 }
+
+
+.sidebar_content{
+  border: 10px;
+  background-color: antiquewhite;
+  padding-right: 20px;;
+  padding-bottom: 20px;
+}
+
+.sidebar_content ul li{
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid royalblue;
+}

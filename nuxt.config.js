@@ -14,7 +14,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: `${process.env.URL}css/style.css`},
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto'}
     ],
     css: [
