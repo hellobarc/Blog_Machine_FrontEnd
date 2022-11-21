@@ -1,7 +1,7 @@
 <template lang="">
   <div>
     <div class="main_content">
-      <h1>Article Main page</h1>
+      <h1>Category hobe</h1>
     </div>
   </div>
 </template>

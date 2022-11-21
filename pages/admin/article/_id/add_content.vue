@@ -1,10 +1,16 @@
 <template lang="">
   <div>
-    add content
+    <div class="main_content">
+      <h1>Article Single Admin</h1>
+    </div>
   </div>
 </template>
 <script>
+
+
 export default {
+  layout: 'admin',
+  middleware: 'admin_middleware'
 
 }
 </script>

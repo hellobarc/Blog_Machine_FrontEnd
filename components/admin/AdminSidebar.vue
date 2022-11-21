@@ -2,16 +2,16 @@
   <div>
     <div class="sidebar_content">
       <ul>
-        <li><NuxtLink to="/">Dashboard</NuxtLink></li>
-        <li><NuxtLink to="/">Article Manage</NuxtLink></li>
-        <li><NuxtLink to="/">Category</NuxtLink></li>
-        <li><NuxtLink to="/">Article Content</NuxtLink></li>
-        <li><NuxtLink to="/">Text Content</NuxtLink></li>
-        <li><NuxtLink to="/">Image Content</NuxtLink></li>
-        <li><NuxtLink to="/">Video Content</NuxtLink></li>
-        <li><NuxtLink to="/">Quotes Content</NuxtLink></li>
-        <li><NuxtLink to="/">Visitors Counter</NuxtLink></li>
-        <li><NuxtLink to="/">Comments Manage</NuxtLink></li>
+        <li><NuxtLink to="/admin">Dashboard</NuxtLink></li>
+        <li><NuxtLink to="/admin/article">Article Manage</NuxtLink></li>
+        <li><NuxtLink to="/admin/category">Category</NuxtLink></li>
+        <li><NuxtLink to="/admin/allcontent">Article Content</NuxtLink></li>
+        <li><NuxtLink to="/admin/textcontent">Text Content</NuxtLink></li>
+        <li><NuxtLink to="/admin/imagecontent">Image Content</NuxtLink></li>
+        <li><NuxtLink to="/admin/videocontent">Video Content</NuxtLink></li>
+        <li><NuxtLink to="/admin/quotescontent">Quotes Content</NuxtLink></li>
+        <li><NuxtLink to="/admin/visitorlsit">Visitors Counter</NuxtLink></li>
+        <li><NuxtLink to="/admin/allcomments">Comments Manage</NuxtLink></li>
       </ul>
     </div>
   </div>

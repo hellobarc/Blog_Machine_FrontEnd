@@ -3,13 +3,24 @@
     <client-only>
       <vue-scroll-indicator height="5px" color="#ed1d24" background="none"> </vue-scroll-indicator>
     </client-only>
-
       <div class="d-flex flex-column min-vh-100" style="2px solid blue">
         <div>
           <HeaderAdmin/>
         </div>
         <div>
-          <Nuxt/>
+          <hr/>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-2">
+                <AdminSidebar/>
+              </div>
+              <div class="col-md-9">
+                  <div class="main_content">
+                      <Nuxt/>
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="clearfix">...</div>
