@@ -98,3 +98,6 @@ app folder/store/snackbar.js
 
 
 Base url from component : this.$axios.defaults.baseURL
+
+
+// Deploy in a server

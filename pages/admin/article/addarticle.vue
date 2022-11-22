@@ -2,8 +2,8 @@
   <div>
     <div class="content_area">
       <div style="display: flex; justify-content: space-between">
-        <div><h2>Add Article Contant ={{$route.param}}</h2></div>
-        <div><nuxt-link class="btn btn-primary" :to="`/admin/article`"> Article</nuxt-link></div>
+        <div><h2>Add Article</h2></div>
+        <div><nuxt-link class="btn btn-primary" to="/admin/article"> Article</nuxt-link></div>
       </div>
       <hr/>
 
@@ -80,7 +80,6 @@ export default {
   middleware: 'admin_middleware',
   data(){
     return{
-      article_id: this.$route.params,
       allcategory: {},
       form_data:{
         title: null,
@@ -91,10 +90,8 @@ export default {
         slug:null,
         custom_date:null,
         is_featured:null,
-
       },
-      selected_file:null,
-      selected:null,
+      selected_file:null
     }
   },
   methods:{
@@ -127,7 +124,6 @@ export default {
   },
   mounted(){
     this.getCategory();
-    console.log(this.$route.params);
   }
 
 }

@@ -11,10 +11,10 @@
           <hr/>
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
                 <AdminSidebar/>
               </div>
-              <div class="col-md-9">
+              <div class="col-md-9 col-lg-9 col-sm-6 col-xs-12">
                   <div class="main_content">
                       <Nuxt/>
                   </div>
@@ -26,20 +26,19 @@
       <div class="clearfix">...</div>
       <div style="margin-top: 100px;">
         <hr>
-        <FooterComponent/>
+          <div> &copy; All right reserved. </div>
       </div>
   </div>
 </template>
 <script>
 import HeaderAdmin from '~/components/common/HeaderAdmin.vue';
-import FooterComponent from '~/components/common/FooterComponent.vue';
+
 
 import "~/assets/css/style_light.css";
 
 export default {
 components: {
-  HeaderAdmin,
-  FooterComponent
+  HeaderAdmin
 },
   created(){
       console.log(process.env.URL)
