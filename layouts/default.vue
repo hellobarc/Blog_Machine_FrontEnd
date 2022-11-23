@@ -33,9 +33,9 @@ export default {
     NavigationComponent,
     FooterComponent
   },
-    created(){
-        console.log(process.env.URL)
-    }
+  created(){
+      console.log(process.env.URL)
+  }
 
 }
 </script>

@@ -10,13 +10,14 @@
       <div class="insert_form col-md-6 mx-auto">
 
           <form @submit.prevent="formSubmit">
+
               <div class="form-group">
                 <label for="title">Article Title </label>
                 <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Article title" v-model="form_data.title">
               </div>
 
               <div class="form-group">
-                <label for="category_id"> Category</label>
+                <label for="category_id"> Category = {{selected}}</label>
                   <select class="form-control" v-model="selected">
                     <option disabled value="">Please select Category</option>
                     <option v-for="option in allcategory" :value="option.id">
@@ -90,8 +91,10 @@ export default {
         slug:null,
         custom_date:null,
         is_featured:null,
+
       },
-      selected_file:null
+      selected_file:null,
+      selected:0
     }
   },
   methods:{

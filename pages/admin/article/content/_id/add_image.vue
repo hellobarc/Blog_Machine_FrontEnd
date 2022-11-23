@@ -2,7 +2,7 @@
   <div>
     <div class="content_area">
       <div style="display: flex; justify-content: space-between">
-        <div><h2> Article Contant</h2></div>
+        <div><h2> Article Image</h2></div>
         <div><nuxt-link class="btn btn-primary" :to="`/admin/article`"> Article</nuxt-link></div>
       </div>
       <hr/>
@@ -57,7 +57,6 @@
 
         <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
             <div class="">
-              {{article_content}}
               <table class="table">
                 <tr>
                     <th>Sl</th>
@@ -79,35 +78,7 @@
                         <nuxt-link :to="`/admin/article/content/${item.id}/delete`" class="btn btn-xs btn-danger">Delete</nuxt-link>
                     </td>
                     <td>
-                        <div v-if="item.content_type=='text'">
-                            <nuxt-link :to="`/admin/article/content/${item.id}/add_text`" class="btn btn-xs btn-primary">Add Text</nuxt-link>
-                        </div>
-
-                        <div v-if="item.content_type=='image'">
-                            <nuxt-link :to="`/admin/article/content/${item.id}/add_iamge`" class="btn btn-xs btn-primary">Add Image</nuxt-link>
-                        </div>
-
-                        <div v-if="item.content_type=='video'">
-                            <nuxt-link :to="`/admin/article/content/${item.id}/add_video`" class="btn btn-xs btn-primary">Add Video</nuxt-link>
-                        </div>
-
-                        <div v-if="item.content_type=='quote'">
-                            <nuxt-link :to="`/admin/article/content/${item.id}/add_video`" class="btn btn-xs btn-primary">Add Quote</nuxt-link>
-                        </div>
-
-                        <div v-if="item.content_type=='left_text_video'">
-                            <nuxt-link :to="`/admin/article/content/${item.id}/add_video`" class="btn btn-xs btn-primary">Left Text Vid</nuxt-link>
-                        </div>
-
-                        <div v-if="item.content_type=='right_text_video'">
-                            <nuxt-link :to="`/admin/article/content/${item.id}/add_video`" class="btn btn-xs btn-primary">Right Text Vid</nuxt-link>
-                        </div>
-
-                        <div v-if="item.content_type=='into'">
-                            <nuxt-link :to="`/admin/article/content/${item.id}/add_video`" class="btn btn-xs btn-primary">Add Intro</nuxt-link>
-                        </div>
-
-
+                        <nuxt-link :to="`/admin/article/content/${item.id}/add_text`" class="btn btn-xs btn-primary">Add</nuxt-link>
                     </td>
                 </tr>
               </table>
@@ -145,8 +116,6 @@ export default {
       let res =  await this.$axios.post('api/v1/auth/article-content/store',this.form_data,{ headers: {
         'Authorization': `Basic ${this.token}`
       }});
-
-      this.getArticleContent();
     },
 
     async getArticleContent(){

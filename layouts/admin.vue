@@ -1,8 +1,7 @@
 <template lang="">
   <div>
-    <client-only>
+    <client-only placeholder="Loading...">
       <vue-scroll-indicator height="5px" color="#ed1d24" background="none"> </vue-scroll-indicator>
-    </client-only>
       <div class="d-flex flex-column min-vh-100" style="2px solid blue">
         <div>
           <HeaderAdmin/>
@@ -28,6 +27,7 @@
         <hr>
           <div> &copy; All right reserved. </div>
       </div>
+    </client-only>
   </div>
 </template>
 <script>
