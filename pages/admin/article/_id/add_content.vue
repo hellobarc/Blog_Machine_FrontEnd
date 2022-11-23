@@ -57,7 +57,6 @@
 
         <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
             <div class="">
-              {{article_content}}
               <table class="table">
                 <tr>
                     <th>Sl</th>
@@ -150,13 +149,13 @@ export default {
     },
 
     async getArticleContent(){
-      let res =  await this.$axios.get(`api/v1/auth/article-content/show/${this.article_id}`,
+      let res =  await this.$axios.get(`api/v1/auth/article-content/get/${this.article_id}`,
                                           { headers: {
                                                         'Authorization': `Basic ${this.token}`
                                                       }
                                           }
                                      );
-          this.article_content =  res.data;
+          this.article_content =  res.data.data;
     }
   },
   mounted(){

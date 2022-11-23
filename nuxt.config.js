@@ -31,6 +31,8 @@ export default {
     '@/plugins/bootstrap-vue',
     '@/plugins/caraousel_slider',
     { src: '~/plugins/vue-scroll-indicator', ssr: false },
+//    { src: '~/plugins/tinymce', ssr: false, mode: "client" },
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
