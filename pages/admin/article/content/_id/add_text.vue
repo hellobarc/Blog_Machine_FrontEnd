@@ -4,13 +4,11 @@
       <div style="display: flex; justify-content: space-between">
         <div><h2> Article Text </h2></div>
         <div>
-            <nuxt-link class="btn btn-primary" :to="`/admin/article/${content_id}/add_content`">  Add Content </nuxt-link>
+            <nuxt-link class="btn btn-primary" :to="`/admin/article/${contentID}/add_content`">  Add Content </nuxt-link>
         </div>
       </div>
-
       <hr/>
-
-      <div class="row">
+       <div class="row">
         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
             <div class="">
               <form @submit.prevent="formSubmit">
@@ -19,19 +17,18 @@
                     <editor
                         api-key="73t8fjsg0wa37r22h1gnoznhivgiwf2sxzvt50fu3jdigjo0"
                         :init="{
-                          height: 500,
-                          menubar: false,
-                          plugins: [
-                            'advlist autolink lists link image charmap print preview anchor',
-                            'searchreplace visualblocks code fullscreen',
-                            'insertdatetime media table paste code help wordcount textcolor',
-                            'checklist mediaembed casechange  formatpainter  linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage  tableofcontents footnotes mergetags autocorrect'
-                          ],
-                          toolbar:
-                            'undo redo | formatselect | blocks fontfamily fontsize | bold italic forecolor backcolor | underline strikethrough| \
-                            alignleft aligncenter alignright alignjustify | \
-                            bullist numlist outdent indent | removeformat | help | '
-                        }"
+                            height: 500,
+                            menubar: false,
+                            plugins: [
+                              'advlist autolink lists link image charmap print preview anchor',
+                              'searchreplace visualblocks code fullscreen',
+                              'insertdatetime media table paste code help wordcount'
+                            ],
+                            toolbar:
+                              'undo redo | formatselect | bold italic backcolor | \
+                              alignleft aligncenter alignright alignjustify | \
+                              bullist numlist outdent indent | removeformat | help'
+                          }"
 
                         v-model="form_data.content"
                       />
@@ -43,8 +40,8 @@
 
           <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
               <div class="">
-                  <h2>Tex content</h2>
-                  <p>{{text_content}}</p>
+                  <h2>{{article_content.content_subtitle}}</h2>
+                  <div v-html="text_content.content"></div>
               </div>
           </div>
 
@@ -65,16 +62,25 @@ export default {
   data(){
     return{
       token : this.$auth.strategy.token.get(),
-      content_id: this.$route.params.id,
+      params: this.$route.params.id,
       form_data:{
-        article_id:1,
-        article_content_id:1,
+        article_id: null,
+        article_content_id: null,
         content:null,
         font:'san-serif',
         font_size:'22',
       },
       text_content: {},
+      article_content: {},
     }
+  },
+  computed:{
+    contentID(){
+      return  this.params.split("-")[0];
+    },
+    articleID(){
+      return  this.params.split("-")[1];
+    },
   },
   methods:{
 
@@ -85,20 +91,34 @@ export default {
     },
 
     async getTextContent(){
-      let res =  await this.$axios.get(`api/v1/auth/text-content/get/${this.content_id}`,
+      let res =  await this.$axios.get(`api/v1/auth/text-content/get/${this.contentID}`,
                                           { headers: {
                                                         'Authorization': `Basic ${this.token}`,
                                                         'Accept': `Application/json`,
                                                       }
                                           }
                                      );
-          this.text_content =  res.data;
+          this.text_content =  res.data.data[0];
+          this.content =    res.data.data[0].content;
+    },
+
+    async setID(){
+      this.form_data.article_id = this.articleID;
+      this.form_data.article_content_id = this.contentID;
+    },
+
+    async getArticleContent(){
+      let res =  await this.$store.dispatch("admin_store/getContentById",1);
+      this.article_content = res.data.data;
     }
 
 
   },
   mounted(){
     this.getTextContent();
+   // this.form_data.article_id = 5,
+   this.setID();
+   this.getArticleContent();
   }
 
 }

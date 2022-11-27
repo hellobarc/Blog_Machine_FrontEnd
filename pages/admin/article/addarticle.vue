@@ -17,7 +17,7 @@
               </div>
 
               <div class="form-group">
-                <label for="category_id"> Category </label>
+                <label for="category_id"> Category  {{form_data.category_id}}</label>
                   <select class="form-control" v-model="form_data.category_id">
                     <option disabled value="">Please select Category</option>
                     <option v-for="option in allcategory" :value="option.cat_id">
@@ -121,12 +121,12 @@ export default {
       fd.append('is_featured',this.form_data.is_featured);
       fd.append('tags',this.form_data.tags);
       fd.append('slug',this.form_data.slug);
-      fd.append('category_id',this.form_data.slug);
+      fd.append('category_id',this.form_data.category_id);
       fd.append('read_minutes',10);
 
       const token = this.$auth.strategy.token.get();
 
-      let res =  await this.$axios.post('api/v1/article/store',fd,{ headers: {
+      let res =  await this.$axios.post('api/v1/auth/article/store',fd,{ headers: {
         'Authorization': `Basic ${token}`,
         'Accept': 'application/json'
       }});

@@ -79,7 +79,7 @@
                     </td>
                     <td>
                         <div v-if="item.content_type=='text'">
-                            <nuxt-link :to="`/admin/article/content/${item.id}/add_text`" class="btn btn-xs btn-primary">Add Text</nuxt-link>
+                            <nuxt-link :to="`/admin/article/content/${item.id}-${item.article_id}/add_text`" class="btn btn-xs btn-primary">Add Text</nuxt-link>
                         </div>
 
                         <div v-if="item.content_type=='image'">

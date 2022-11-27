@@ -106,3 +106,4 @@ Base url from component : this.$axios.defaults.baseURL
 $ npm install --save "@tinymce/tinymce-vue@^3"
 //https://www.tiny.cloud/my-account/dashboard
 //https://www.tiny.cloud/docs-4x/plugins/textcolor/
+https://www.tiny.cloud/docs/integrations/vue/

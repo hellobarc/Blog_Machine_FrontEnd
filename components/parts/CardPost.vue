@@ -1,7 +1,8 @@
 <template lang="">
   <div>
     <div class="mycard" style="width:95%">
-      <img src="~/assets/temp_image/course_1.png"   :alt="title"/>
+
+      <img :src="`${base_url}public/uploads/article/thumbnail/${thumbnail}`"   :alt="title"/>
       <div class="card-body">
         <h5 class="card-title">{{title}}</h5>
         <p class="card-text">{{description}}</p>
@@ -22,10 +23,12 @@ export default {
     description: String,
     article_id: String,
     article_slug: String,
+    thumbnail : String,
   },
   data(){
     return {
-      post_id: 1
+      post_id: 1,
+      base_url: this.$axios.defaults.baseURL
     }
   }
 
