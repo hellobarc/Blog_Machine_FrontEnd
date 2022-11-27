@@ -5,6 +5,7 @@
           <div class="row">
             <div class="col-md-2"></div>
               <div class="col-md-7 col-md-offset-3">
+                {{meta_keyword}}
                 <div class="main_content" v-for="(item,index) in article_data" :key="index"  >
                   <div>
                     <nuxt-link to="/category/id/slug"><p>{{item.category.cat_name}}</p></nuxt-link>
@@ -67,13 +68,23 @@ export default {
   components:{
     CategoryWidget
   },
+  head () {
+    return {
+      title: 'About Us - Nuxt.js',
+      meta: [
+        { hid: 'description', name: 'description', content: 'About our company Nuxt.js ' },
+        { hid: 'keywords', name: 'keywords', content: this.metaKey}
+      ]
+    }
+  },
   data(){
     return {
         base_url: this.$axios.defaults.baseURL || 'http://127.0.0.1:8000/',
         article_id: this.$route.params.id,
         article_data:{},
         sub_heads:[],
-        sub_dom: {}
+        sub_dom: {},
+        meta_keyword:null
     }
   },
   computed:{
@@ -81,7 +92,10 @@ export default {
           return this.sub_heads.map((item)=>{
                 return item.content_subtitle;
           });
-        }
+        },
+    metaKey(){
+       return "Dynamic keyword dear try cholse";
+    }
   },
   created(){
         this.sub_dom = this.$refs;
@@ -112,6 +126,7 @@ export default {
     async getArticle(){
       const res= await this.$store.dispatch("getArticle",this.article_id);
       this.article_data = res.data.data;
+      this.meta_keyword = res.data.data[0].meta_keyword;
       this.sub_heads = res.data.data[0].article_content;
     },
 
