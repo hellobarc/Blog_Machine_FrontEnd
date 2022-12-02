@@ -12,14 +12,13 @@ export default {
   },
   methods:{
 
-    async getCategory() {
-      let res = await this.$store.dispatch("allCategory");
+  },
+  async fetch () {
+      const res = await this.$store.dispatch("allCategory");
       this.all_category = res.data.data;
-    }
-
   },
   mounted(){
-    this.getCategory();
+    //this.getCategory();
   }
 }
 </script>

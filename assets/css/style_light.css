@@ -95,6 +95,7 @@ p{
 ul.table_content li{
   font-weight: bold;
   color: #404441;
+  margin-bottom: 10px;
 }
 
 ul.table_content li a{
@@ -226,7 +227,7 @@ footer {
 
 .gray_box{
   background: #FBFBFB;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /*box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);*/
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 30px;
@@ -309,15 +310,16 @@ top: 2rem;
 
 .sidebar_content{
   border: 10px;
-  background-color: antiquewhite;
-  padding-right: 20px;;
+  background-color: #e9ecef;
+  padding-right: 20px;
   padding-bottom: 20px;
+  border-radius: 5px;
 }
 
 .sidebar_content ul li{
   padding-bottom: 10px;
   padding-top: 10px;
-  border-bottom: 1px solid royalblue;
+  border-bottom: 1px solid #C4C2C2;
 }
 
 label{

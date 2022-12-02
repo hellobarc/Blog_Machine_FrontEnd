@@ -2,7 +2,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   mode: 'universal',
   ssr: true,
-  target: 'server',
+  target: 'static',
   head: {
     title: 'Blog Site',
     htmlAttrs: {
@@ -34,7 +34,6 @@ export default {
     '@/plugins/caraousel_slider',
     { src: '~/plugins/vue-scroll-indicator', ssr: false },
 //    { src: '~/plugins/tinymce', ssr: false, mode: "client" },
-
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

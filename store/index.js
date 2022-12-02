@@ -1,4 +1,8 @@
-export const state = () => ({})
+export const state = () => ({
+
+  site_info: {},
+
+})
 
 export const mutations ={};
 

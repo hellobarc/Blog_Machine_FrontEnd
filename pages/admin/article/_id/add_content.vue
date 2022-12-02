@@ -83,7 +83,7 @@
                         </div>
 
                         <div v-if="item.content_type=='image'">
-                            <nuxt-link :to="`/admin/article/content/${item.id}/add_iamge`" class="btn btn-xs btn-primary">Add Image</nuxt-link>
+                            <nuxt-link :to="`/admin/article/content/${item.id}-${item.article_id}/add_image`" class="btn btn-xs btn-primary">Add Image</nuxt-link>
                         </div>
 
                         <div v-if="item.content_type=='video'">

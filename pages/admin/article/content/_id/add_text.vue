@@ -4,7 +4,7 @@
       <div style="display: flex; justify-content: space-between">
         <div><h2> Article Text </h2></div>
         <div>
-            <nuxt-link class="btn btn-primary" :to="`/admin/article/${contentID}/add_content`">  Add Content </nuxt-link>
+            <nuxt-link class="btn btn-primary" :to="`/admin/article/${articleID}/add_content`">  Add Content </nuxt-link>
         </div>
       </div>
       <hr/>
@@ -72,6 +72,7 @@ export default {
       },
       text_content: {},
       article_content: {},
+      content_exist: false
     }
   },
   computed:{
@@ -85,9 +86,16 @@ export default {
   methods:{
 
     async formSubmit(){
-      let res =  await this.$axios.post('api/v1/auth/text-content/store',this.form_data,{ headers: {
+
+      if(this.content_exist){
+          console.log('content agei ase');
+      }else{
+        let res =  await this.$axios.post('api/v1/auth/text-content/store',this.form_data,{ headers: {
         'Authorization': `Basic ${this.token}`
       }});
+      }
+
+
     },
 
     async getTextContent(){
@@ -110,6 +118,9 @@ export default {
     async getArticleContent(){
       let res =  await this.$store.dispatch("admin_store/getContentById",1);
       this.article_content = res.data.data;
+      if(res.data.length){
+        this.content_exist = true;
+      }
     }
 
 

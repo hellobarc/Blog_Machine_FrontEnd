@@ -2,134 +2,121 @@
   <div>
     <div class="content_area">
       <div style="display: flex; justify-content: space-between">
-        <div><h2> Article Image</h2></div>
-        <div><nuxt-link class="btn btn-primary" :to="`/admin/article`"> Article</nuxt-link></div>
+        <div><nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Article</li>
+              <li class="breadcrumb-item active" aria-current="page">Content</li>
+              <li class="breadcrumb-item active" aria-current="page">Image</li>
+            </ol>
+          </nav>
+       </div>
+        <div>
+            <nuxt-link class="btn btn-primary" :to="`/admin/article/${articleID}/add_content`">  Add Content </nuxt-link>
+        </div>
       </div>
       <hr/>
-
-
-      <div class="row">
+       <div class="row">
         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
             <div class="">
-
               <form @submit.prevent="formSubmit">
                   <div class="form-group">
-                    <label for="content_subtitle">Content Sub Title </label>
-                    <input type="text" class="form-control" id="content_subtitle" aria-describedby="content_subtitle" placeholder="Content Subtitle" v-model="form_data.content_subtitle">
+                    <label for="content"> Image Content  </label>
+                    <input type="file" class="form-control" id="feature_image" aria-describedby="featured_image" placeholder="Featured Image" @change="onFileSelected">
                   </div>
-
-                  <div class="form-group">
-                    <label for="content_type"> Content type  {{form_data.content_type}}</label>
-                      <select class="form-control" v-model="form_data.content_type">
-                        <option  value="text">Text</option>
-                        <option  value="quote">Quote</option>
-                        <option  value="image">Image</option>
-                        <option  value="video">Video</option>
-                        <option  value="left_text_video">Left Text Video</option>
-                        <option  value="right_text_video">Right Text Video</option>
-                        <option  value="into">Intro Text</option>
-                      </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="layout"> Layout = {{form_data.layout}}</label>
-                      <select class="form-control" v-model="form_data.layout">
-                        <option  value="full_width">Full Width</option>
-                        <option  value="left">Left</option>
-                        <option  value="right">Right</option>
-                        <option  value="center">Center</option>
-                      </select>
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="layout_width"> Width = {{form_data.layout_width}}</label>
-                      <select class="form-control" v-model="form_data.layout_width">
-                        <option v-for="width in 12" :value="width">{{ width}}</option>
-                      </select>
-                  </div>
-
                   <div class=" text-center"> <button type="submit" class="btn btn-primary text-center">Submit</button></div>
-                  </form>
-
+                </form>
             </div>
         </div>
 
-        <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
-            <div class="">
-              <table class="table">
-                <tr>
-                    <th>Sl</th>
-                    <th>Subtitle</th>
-                    <th>Type</th>
-                    <th>Layout</th>
-                    <th>Width</th>
-                    <th>Action</th>
-                    <th>Resource</th>
-                </tr>
-                <tr v-for="(item,index) in article_content" :key="index">
-                    <td>{{index+1}}</td>
-                    <td>{{item.content_subtitle}}</td>
-                    <td>{{item.content_type}}</td>
-                    <td>{{item.layout}}</td>
-                    <td>{{item.layout_width}}</td>
-                    <td>
-                        <nuxt-link :to="`/admin/article/content/${item.id}/update`" class="btn btn-xs btn-warning">Edit</nuxt-link>
-                        <nuxt-link :to="`/admin/article/content/${item.id}/delete`" class="btn btn-xs btn-danger">Delete</nuxt-link>
-                    </td>
-                    <td>
-                        <nuxt-link :to="`/admin/article/content/${item.id}/add_text`" class="btn btn-xs btn-primary">Add</nuxt-link>
-                    </td>
-                </tr>
-              </table>
-
-            </div>
-        </div>
+          <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+              <div class="">
+                  <h2>{{article_content.content_subtitle}}</h2>
+                  <div>
+                     Image <img :src="`${base_url}public/uploads/article/thumbnail/${iamge_content.content}`" />
+                  </div>
+              </div>
+          </div>
 
       </div>
     </div>
   </div>
 </template>
-<script>
 
+<script>
+ import Editor from '@tinymce/tinymce-vue';
 
 export default {
   layout: 'admin',
   middleware: 'admin_middleware',
+  components: {
+    'editor': Editor
+  },
   data(){
     return{
+      base_url: this.$axios.defaults.baseURL,
       token : this.$auth.strategy.token.get(),
-      article_id: this.$route.params.id,
+      params: this.$route.params.id,
       form_data:{
-        article_id: this.$route.params.id,
-        content_subtitle: null,
-        content_type:null,
-        layout:null,
-        layout_width:null,
+        article_id: null,
+        article_content_id: null
       },
+      iamge_content: {},
       article_content: {},
-
+      file_selected: null,
     }
   },
+  computed:{
+    contentID(){
+      return  this.params.split("-")[0];
+    },
+    articleID(){
+      return  this.params.split("-")[1];
+    },
+  },
   methods:{
-    async formSubmit(){
-      let res =  await this.$axios.post('api/v1/auth/article-content/store',this.form_data,{ headers: {
-        'Authorization': `Basic ${this.token}`
-      }});
+
+    onFileSelected(event){
+       this.file_selected =  event.target.files[0];
     },
 
-    async getArticleContent(){
-      let res =  await this.$axios.get(`api/v1/auth/article-content/show/${this.article_id}`,
+    async formSubmit(){
+            let res =  await this.$axios.post('api/v1/auth/text-content/store',this.form_data,{ headers: {
+                                                    'Authorization': `Basic ${this.token}`
+                                                    }});
+    },
+
+    async getTextContent(){
+      let res =  await this.$axios.get(`api/v1/auth/image-content/get/${this.contentID}`,
                                           { headers: {
-                                                        'Authorization': `Basic ${this.token}`
+                                                        'Authorization': `Basic ${this.token}`,
+                                                        'Accept': `Application/json`,
                                                       }
                                           }
                                      );
-          this.article_content =  res.data;
+          this.iamge_content =  res.data.data[0];
+    },
+
+    async setID(){
+      this.form_data.article_id = this.articleID;
+      this.form_data.article_content_id = this.contentID;
+    },
+
+    async getArticleContent(){
+      let res =  await this.$store.dispatch("admin_store/getContentById",1);
+      this.article_content = res.data.data;
+      if(res.data.length){
+        this.content_exist = true;
+      }
     }
+
+
   },
   mounted(){
-    this.getArticleContent();
+    this.getTextContent();
+   // this.form_data.article_id = 5,
+   this.setID();
+   this.getArticleContent();
   }
 
 }

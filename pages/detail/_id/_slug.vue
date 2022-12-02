@@ -5,8 +5,7 @@
           <div class="row">
             <div class="col-md-2"></div>
               <div class="col-md-7 col-md-offset-3">
-                {{meta_keyword}}
-                <div class="main_content" v-for="(item,index) in article_data" :key="index"  >
+                <div class="main_content" v-for="(item,index) in article_data" :key="index">
                   <div>
                     <nuxt-link to="/category/id/slug"><p>{{item.category.cat_name}}</p></nuxt-link>
                   </div>
@@ -81,11 +80,17 @@ export default {
     return {
         base_url: this.$axios.defaults.baseURL || 'http://127.0.0.1:8000/',
         article_id: this.$route.params.id,
-        article_data:{},
         sub_heads:[],
         sub_dom: {},
-        meta_keyword:null
+        meta_keyword:null,
+        article_data: {}
     }
+  },
+  async fetch () {
+    const res= await this.$store.dispatch("getArticle",this.article_id);
+          this.article_data = res.data.data;
+          this.meta_keyword = res.data.data[0].meta_keyword;
+          this.sub_heads = res.data.data[0].article_content;
   },
   computed:{
     subHeads(){
@@ -123,26 +128,16 @@ export default {
       }
     },
 
-    async getArticle(){
-      const res= await this.$store.dispatch("getArticle",this.article_id);
-      this.article_data = res.data.data;
-      this.meta_keyword = res.data.data[0].meta_keyword;
-      this.sub_heads = res.data.data[0].article_content;
-    },
-
 
   },
   beforeMount () {
     window.addEventListener('scroll', this.handleScroll);
-
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.handleScroll)
   },
   mounted(){
    // this.subHeads();
-    this.getArticle();
-
   }
 }
 </script>
