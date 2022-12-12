@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-      Catgoey page
+      Category ID : {{$route.params.id}}
   </div>
 </template>
 <script>

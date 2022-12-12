@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-      Category id missing
+      Category Link
   </div>
 </template>
 <script>

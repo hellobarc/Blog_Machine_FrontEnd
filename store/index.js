@@ -25,6 +25,13 @@ export const actions={
     return res;
   },
 
+
+  async categoryPost() {
+    let res = await this.$axios.get('api/v1/article/latest-post')
+    return res;
+  },
+
+
   async premiumPost(){
     let res =  await this.$axios.get('api/v1/article/premium-post');
     return res;

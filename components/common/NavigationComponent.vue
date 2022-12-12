@@ -9,7 +9,7 @@
                 <div class="left_item_nav">
                   <span class="large_font">All Category</span>
                   <b-dropdown id="dropdown-1" text="" variant="outline-default " class="m-md-2">
-                    <b-dropdown-item  v-for="category_list in all_category" :key="category_list.cat_id">{{category_list.cat_name}}</b-dropdown-item>
+                    <b-dropdown-item  v-for="category_list in all_category" :key="category_list.cat_id"><nuxt-link :to="`/category/${category_list.cat_id}/${category_list.cat_name}`">{{category_list.cat_name}}</nuxt-link></b-dropdown-item>
                   </b-dropdown>
                 </div>
               </div>
