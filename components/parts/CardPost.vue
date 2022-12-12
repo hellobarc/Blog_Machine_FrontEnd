@@ -21,7 +21,7 @@ export default {
   props:{
     title: String,
     description: String,
-    article_id: String,
+    article_id: Number,
     article_slug: String,
     thumbnail : String,
   },
