@@ -1,8 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  mode: 'universal',
   ssr: true,
-  target: 'static',
+  target: 'universal',
   head: {
     title: 'Blog Site',
     htmlAttrs: {
