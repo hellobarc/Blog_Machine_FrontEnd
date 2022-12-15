@@ -69,7 +69,7 @@ export default {
   },
   head () {
     return {
-      title: 'About Us - Nuxt.js',
+      title: 'Blog Detail Page',
       meta: [
         { hid: 'description', name: 'description', content: 'About our company Nuxt.js ' },
         { hid: 'keywords', name: 'keywords', content: this.metaKey}

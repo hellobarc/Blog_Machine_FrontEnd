@@ -1,0 +1,65 @@
+
+Deploy Nuxt:
+1. Buy a vps droplet with LEMP
+2. Terminus ssh root@258...
+3. File Upload er jonno FTP user kora  /var/www/html er modde
+4. cd /var/www/html
+5. node -v
+6. npm install
+7. install PM2 : npm install pm2 -g
+8. npm install --save nuxt-start
+9. pm2 start npm --name "you-app-alias" -- start  // Alternative of npm run deploy in the packagejson is already set
+10. pm2 statup
+
+11. nuxt deploy proxy nginx
+12. sudo systemctl restart nginx
+13. systemctl status nginx
+
+npm run build
+npm run deploy
+
+
+// necessary
+$ pm2 stop api
+$ pm2 stop [process_id]
+$ pm2 stop all
+//https://pm2.keymetrics.io/docs/usage/process-management/
+
+
+
+// Globally do some work
+
+1. sudo apt install npm
+2. sudo apt install nodejs
+3. sudo apt-get update
+4. sudo apt-get install nginx
+
+// ssl install nginx
+https://www.rosehosting.com/blog/how-to-secure-nginx-with-lets-encrypt-on-ubuntu-20-04/
+
+https://www.youtube.com/watch?v=r-ljiO_7MME
+
+
+
+
+// Node js 
+sudo apt-get remove nodejs
+sudo apt-get remove npm
+hen go to /etc/apt/sources.list.d and remove any node list if you have. Then do a
+
+sudo apt-get update
+
+sudo rm -rf /usr/local/bin/npm 
+sudo rm -rf /usr/local/share/man/man1/node* 
+sudo rm -rf /usr/local/lib/dtrace/node.d
+rm -rf ~/.npm
+rm -rf ~/.node-gyp
+sudo rm -rf /opt/local/bin/node
+sudo rm -rf /opt/local/include/node
+sudo rm -rf /opt/local/lib/node_modules
+sudo rm -rf /usr/local/lib/node*
+sudo rm -rf /usr/local/include/node*
+sudo rm -rf /usr/local/bin/node*
+
+https://stackoverflow.com/questions/32426601/how-can-i-completely-uninstall-nodejs-npm-and-node-in-ubuntu
+https://www.educative.io/answers/how-to-install-nodejs-on-ubuntu
