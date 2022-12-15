@@ -43,23 +43,7 @@ https://www.youtube.com/watch?v=r-ljiO_7MME
 
 
 // Node js 
-sudo apt-get remove nodejs
-sudo apt-get remove npm
-hen go to /etc/apt/sources.list.d and remove any node list if you have. Then do a
+https://github.com/hellobarc/Blog_Machine_FrontEnd.git
 
-sudo apt-get update
 
-sudo rm -rf /usr/local/bin/npm 
-sudo rm -rf /usr/local/share/man/man1/node* 
-sudo rm -rf /usr/local/lib/dtrace/node.d
-rm -rf ~/.npm
-rm -rf ~/.node-gyp
-sudo rm -rf /opt/local/bin/node
-sudo rm -rf /opt/local/include/node
-sudo rm -rf /opt/local/lib/node_modules
-sudo rm -rf /usr/local/lib/node*
-sudo rm -rf /usr/local/include/node*
-sudo rm -rf /usr/local/bin/node*
-
-https://stackoverflow.com/questions/32426601/how-can-i-completely-uninstall-nodejs-npm-and-node-in-ubuntu
-https://www.educative.io/answers/how-to-install-nodejs-on-ubuntu
+git remote show origin
